@@ -1,0 +1,158 @@
+2024-06-19 13:26:27,692 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-06-19 13:26:27,696 - bot.main_bot - INFO - Starting bot...
+2024-06-19 13:26:54,282 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-06-19 13:26:54,284 - bot.main_bot - INFO - Starting bot...
+2024-06-19 13:27:17,055 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-06-19 13:27:17,057 - bot.main_bot - INFO - Starting bot...
+2024-06-19 13:27:38,238 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-06-19 13:27:38,240 - bot.main_bot - INFO - Starting bot...
+2024-06-19 13:28:15,139 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-06-19 13:28:15,141 - bot.main_bot - INFO - Starting bot...
+2024-06-19 13:28:35,603 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-06-19 13:28:35,605 - bot.main_bot - INFO - Starting bot...
+2024-06-19 13:28:36,198 - telegram._bot - DEBUG - Entering: get_me
+2024-06-19 13:28:37,830 - httpx._client - DEBUG - HTTP Request: POST https://api.telegram.org/bot7278468920:AAGKSssCcjdJTy4O9TzgmFTqA1GRe6Dcfck/getMe "HTTP/1.1 200 OK"
+2024-06-19 13:28:37,831 - telegram._bot - DEBUG - User(api_kwargs={'can_connect_to_business': False}, can_join_groups=True, can_read_all_group_messages=False, first_name='nikgoldforexbot', id=7278468920, is_bot=True, supports_inline_queries=False, username='nikgoldforexxbot')
+2024-06-19 13:28:37,831 - telegram._bot - DEBUG - Exiting: get_me
+2024-06-19 13:28:37,831 - telegram._bot - DEBUG - This Bot is already initialized.
+2024-06-19 13:28:37,832 - apscheduler.scheduler - INFO - Scheduler started
+2024-06-19 13:28:37,832 - telegram.ext._application - DEBUG - JobQueue started
+2024-06-19 13:28:37,832 - telegram.ext._application - INFO - Application started
+2024-06-19 13:28:37,833 - telegram.ext._updater - DEBUG - Updater started (polling)
+2024-06-19 13:28:37,833 - telegram.ext._updater - DEBUG - Start network loop retry bootstrap del webhook
+2024-06-19 13:28:37,833 - telegram.ext._updater - DEBUG - Deleting webhook
+2024-06-19 13:28:37,833 - telegram._bot - DEBUG - Entering: delete_webhook
+2024-06-19 13:28:37,834 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2024-06-19 13:28:37,834 - apscheduler.scheduler - DEBUG - No jobs; waiting until a job is added
+2024-06-19 13:28:37,962 - httpx._client - DEBUG - HTTP Request: POST https://api.telegram.org/bot7278468920:AAGKSssCcjdJTy4O9TzgmFTqA1GRe6Dcfck/deleteWebhook "HTTP/1.1 200 OK"
+2024-06-19 13:28:37,964 - telegram._bot - DEBUG - True
+2024-06-19 13:28:37,964 - telegram._bot - DEBUG - Exiting: delete_webhook
+2024-06-19 13:28:37,964 - telegram.ext._updater - DEBUG - Bootstrap done
+2024-06-19 13:28:37,965 - telegram.ext._updater - DEBUG - Waiting for polling to start
+2024-06-19 13:28:37,965 - telegram.ext._updater - DEBUG - Polling updates from Telegram started
+2024-06-19 13:28:37,965 - telegram.ext._updater - DEBUG - Start network loop retry getting Updates
+2024-06-19 13:28:37,966 - telegram._bot - DEBUG - Entering: get_updates
+2024-06-19 13:28:48,163 - httpx._client - DEBUG - HTTP Request: POST https://api.telegram.org/bot7278468920:AAGKSssCcjdJTy4O9TzgmFTqA1GRe6Dcfck/getUpdates "HTTP/1.1 200 OK"
+2024-06-19 13:28:48,164 - telegram._bot - DEBUG - Getting updates: [47656445]
+2024-06-19 13:28:48,165 - telegram._bot - DEBUG - (Update(message=Message(channel_chat_created=False, chat=Chat(first_name='alireza', id=86702300, type=<ChatType.PRIVATE>, username='garwin'), date=datetime.datetime(2024, 6, 19, 9, 58, 22, tzinfo=<UTC>), delete_chat_photo=False, entities=(MessageEntity(length=5, offset=0, type=<MessageEntityType.BOT_COMMAND>),), from_user=User(first_name='alireza', id=86702300, is_bot=False, is_premium=True, language_code='en', username='garwin'), group_chat_created=False, message_id=2494, supergroup_chat_created=False, text='/menu'), update_id=47656445),)
+2024-06-19 13:28:48,167 - telegram._bot - DEBUG - Exiting: get_updates
+2024-06-19 13:28:48,167 - telegram._bot - DEBUG - Entering: get_updates
+2024-06-19 13:28:48,168 - telegram.ext._application - DEBUG - Processing update Update(message=Message(channel_chat_created=False, chat=Chat(first_name='alireza', id=86702300, type=<ChatType.PRIVATE>, username='garwin'), date=datetime.datetime(2024, 6, 19, 9, 58, 22, tzinfo=<UTC>), delete_chat_photo=False, entities=(MessageEntity(length=5, offset=0, type=<MessageEntityType.BOT_COMMAND>),), from_user=User(first_name='alireza', id=86702300, is_bot=False, is_premium=True, language_code='en', username='garwin'), group_chat_created=False, message_id=2494, supergroup_chat_created=False, text='/menu'), update_id=47656445)
+2024-06-19 13:28:48,169 - telegram.ext._conversationhandler - DEBUG - Selecting conversation (86702300, 86702300) with state None
+2024-06-19 13:28:48,170 - telegram.ext._conversationhandler - DEBUG - Selecting conversation (86702300, 86702300) with state None
+2024-06-19 13:28:48,170 - bot.main_bot - INFO - User garwin requested main menu
+2024-06-19 13:28:48,783 - mysql.connector - DEBUG - Building SSL context
+2024-06-19 13:28:48,854 - mysql.connector - DEBUG - Switching to SSL
+2024-06-19 13:28:49,741 - mysql.connector - DEBUG - SSL has been enabled
+2024-06-19 13:28:49,741 - mysql.connector - DEBUG - Starting authorization phase
+2024-06-19 13:28:49,742 - mysql.connector - DEBUG - The provided initial strategy is mysql_native_password
+2024-06-19 13:28:49,742 - mysql.connector - INFO - package: mysql.connector.plugins
+2024-06-19 13:28:49,742 - mysql.connector - INFO - plugin_name: mysql_native_password
+2024-06-19 13:28:49,744 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLNativePasswordAuthPlugin
+2024-06-19 13:28:50,067 - mysql.connector - DEBUG - mysql_native_password completed succesfully
+2024-06-19 13:28:52,314 - telegram._bot - DEBUG - Entering: send_message
+2024-06-19 13:28:52,911 - httpx._client - DEBUG - HTTP Request: POST https://api.telegram.org/bot7278468920:AAGKSssCcjdJTy4O9TzgmFTqA1GRe6Dcfck/sendMessage "HTTP/1.1 200 OK"
+2024-06-19 13:28:52,912 - telegram._bot - DEBUG - Message(channel_chat_created=False, chat=Chat(first_name='alireza', id=86702300, type=<ChatType.PRIVATE>, username='garwin'), date=datetime.datetime(2024, 6, 19, 9, 58, 27, tzinfo=<UTC>), delete_chat_photo=False, from_user=User(first_name='nikgoldforexbot', id=7278468920, is_bot=True, username='nikgoldforexxbot'), group_chat_created=False, message_id=2495, supergroup_chat_created=False, text='Here is your menu:')
+2024-06-19 13:28:52,913 - telegram._bot - DEBUG - Exiting: send_message
+2024-06-19 13:28:54,305 - httpx._client - DEBUG - HTTP Request: POST https://api.telegram.org/bot7278468920:AAGKSssCcjdJTy4O9TzgmFTqA1GRe6Dcfck/getUpdates "HTTP/1.1 200 OK"
+2024-06-19 13:28:54,306 - telegram._bot - DEBUG - Getting updates: [47656446]
+2024-06-19 13:28:54,307 - telegram._bot - DEBUG - (Update(message=Message(channel_chat_created=False, chat=Chat(first_name='alireza', id=86702300, type=<ChatType.PRIVATE>, username='garwin'), date=datetime.datetime(2024, 6, 19, 9, 58, 28, tzinfo=<UTC>), delete_chat_photo=False, from_user=User(first_name='alireza', id=86702300, is_bot=False, is_premium=True, language_code='en', username='garwin'), group_chat_created=False, message_id=2496, supergroup_chat_created=False, text='FAQ'), update_id=47656446),)
+2024-06-19 13:28:54,308 - telegram._bot - DEBUG - Exiting: get_updates
+2024-06-19 13:28:54,308 - telegram._bot - DEBUG - Entering: get_updates
+2024-06-19 13:28:54,309 - telegram.ext._application - DEBUG - Processing update Update(message=Message(channel_chat_created=False, chat=Chat(first_name='alireza', id=86702300, type=<ChatType.PRIVATE>, username='garwin'), date=datetime.datetime(2024, 6, 19, 9, 58, 28, tzinfo=<UTC>), delete_chat_photo=False, from_user=User(first_name='alireza', id=86702300, is_bot=False, is_premium=True, language_code='en', username='garwin'), group_chat_created=False, message_id=2496, supergroup_chat_created=False, text='FAQ'), update_id=47656446)
+2024-06-19 13:28:54,309 - telegram.ext._conversationhandler - DEBUG - Selecting conversation (86702300, 86702300) with state None
+2024-06-19 13:28:54,309 - telegram.ext._conversationhandler - DEBUG - Selecting conversation (86702300, 86702300) with state None
+2024-06-19 13:28:54,310 - telegram._bot - DEBUG - Entering: send_message
+2024-06-19 13:28:54,476 - httpx._client - DEBUG - HTTP Request: POST https://api.telegram.org/bot7278468920:AAGKSssCcjdJTy4O9TzgmFTqA1GRe6Dcfck/sendMessage "HTTP/1.1 200 OK"
+2024-06-19 13:28:54,477 - telegram._bot - DEBUG - Message(channel_chat_created=False, chat=Chat(first_name='alireza', id=86702300, type=<ChatType.PRIVATE>, username='garwin'), date=datetime.datetime(2024, 6, 19, 9, 58, 29, tzinfo=<UTC>), delete_chat_photo=False, from_user=User(first_name='nikgoldforexbot', id=7278468920, is_bot=True, username='nikgoldforexxbot'), group_chat_created=False, message_id=2497, supergroup_chat_created=False, text='This is the FAQ section. Here you can find answers to common questions.')
+2024-06-19 13:28:54,477 - telegram._bot - DEBUG - Exiting: send_message
+2024-06-19 13:28:57,055 - httpx._client - DEBUG - HTTP Request: POST https://api.telegram.org/bot7278468920:AAGKSssCcjdJTy4O9TzgmFTqA1GRe6Dcfck/getUpdates "HTTP/1.1 200 OK"
+2024-06-19 13:28:57,056 - telegram._bot - DEBUG - Getting updates: [47656447]
+2024-06-19 13:28:57,056 - telegram._bot - DEBUG - (Update(message=Message(channel_chat_created=False, chat=Chat(first_name='alireza', id=86702300, type=<ChatType.PRIVATE>, username='garwin'), date=datetime.datetime(2024, 6, 19, 9, 58, 31, tzinfo=<UTC>), delete_chat_photo=False, from_user=User(first_name='alireza', id=86702300, is_bot=False, is_premium=True, language_code='en', username='garwin'), group_chat_created=False, message_id=2498, supergroup_chat_created=False, text='Support'), update_id=47656447),)
+2024-06-19 13:28:57,057 - telegram._bot - DEBUG - Exiting: get_updates
+2024-06-19 13:28:57,057 - telegram._bot - DEBUG - Entering: get_updates
+2024-06-19 13:28:57,062 - telegram.ext._application - DEBUG - Processing update Update(message=Message(channel_chat_created=False, chat=Chat(first_name='alireza', id=86702300, type=<ChatType.PRIVATE>, username='garwin'), date=datetime.datetime(2024, 6, 19, 9, 58, 31, tzinfo=<UTC>), delete_chat_photo=False, from_user=User(first_name='alireza', id=86702300, is_bot=False, is_premium=True, language_code='en', username='garwin'), group_chat_created=False, message_id=2498, supergroup_chat_created=False, text='Support'), update_id=47656447)
+2024-06-19 13:28:57,062 - telegram.ext._conversationhandler - DEBUG - Selecting conversation (86702300, 86702300) with state None
+2024-06-19 13:28:57,062 - telegram.ext._conversationhandler - DEBUG - Selecting conversation (86702300, 86702300) with state None
+2024-06-19 13:28:57,063 - telegram._bot - DEBUG - Entering: send_message
+2024-06-19 13:28:57,232 - httpx._client - DEBUG - HTTP Request: POST https://api.telegram.org/bot7278468920:AAGKSssCcjdJTy4O9TzgmFTqA1GRe6Dcfck/sendMessage "HTTP/1.1 200 OK"
+2024-06-19 13:28:57,233 - telegram._bot - DEBUG - Message(channel_chat_created=False, chat=Chat(first_name='alireza', id=86702300, type=<ChatType.PRIVATE>, username='garwin'), date=datetime.datetime(2024, 6, 19, 9, 58, 31, tzinfo=<UTC>), delete_chat_photo=False, from_user=User(first_name='nikgoldforexbot', id=7278468920, is_bot=True, username='nikgoldforexxbot'), group_chat_created=False, message_id=2499, supergroup_chat_created=False, text='Please choose the department you want to contact:')
+2024-06-19 13:28:57,234 - telegram._bot - DEBUG - Exiting: send_message
+2024-06-19 13:28:58,424 - httpx._client - DEBUG - HTTP Request: POST https://api.telegram.org/bot7278468920:AAGKSssCcjdJTy4O9TzgmFTqA1GRe6Dcfck/getUpdates "HTTP/1.1 200 OK"
+2024-06-19 13:28:58,425 - telegram._bot - DEBUG - Getting updates: [47656448]
+2024-06-19 13:28:58,426 - telegram._bot - DEBUG - (Update(message=Message(channel_chat_created=False, chat=Chat(first_name='alireza', id=86702300, type=<ChatType.PRIVATE>, username='garwin'), date=datetime.datetime(2024, 6, 19, 9, 58, 32, tzinfo=<UTC>), delete_chat_photo=False, from_user=User(first_name='alireza', id=86702300, is_bot=False, is_premium=True, language_code='en', username='garwin'), group_chat_created=False, message_id=2500, supergroup_chat_created=False, text='Sales'), update_id=47656448),)
+2024-06-19 13:28:58,426 - telegram._bot - DEBUG - Exiting: get_updates
+2024-06-19 13:28:58,427 - telegram._bot - DEBUG - Entering: get_updates
+2024-06-19 13:28:58,427 - telegram.ext._application - DEBUG - Processing update Update(message=Message(channel_chat_created=False, chat=Chat(first_name='alireza', id=86702300, type=<ChatType.PRIVATE>, username='garwin'), date=datetime.datetime(2024, 6, 19, 9, 58, 32, tzinfo=<UTC>), delete_chat_photo=False, from_user=User(first_name='alireza', id=86702300, is_bot=False, is_premium=True, language_code='en', username='garwin'), group_chat_created=False, message_id=2500, supergroup_chat_created=False, text='Sales'), update_id=47656448)
+2024-06-19 13:28:58,428 - telegram.ext._conversationhandler - DEBUG - Selecting conversation (86702300, 86702300) with state None
+2024-06-19 13:28:58,428 - telegram.ext._conversationhandler - DEBUG - Selecting conversation (86702300, 86702300) with state 0
+2024-06-19 13:28:58,429 - telegram._bot - DEBUG - Entering: send_message
+2024-06-19 13:28:58,693 - httpx._client - DEBUG - HTTP Request: POST https://api.telegram.org/bot7278468920:AAGKSssCcjdJTy4O9TzgmFTqA1GRe6Dcfck/sendMessage "HTTP/1.1 200 OK"
+2024-06-19 13:28:58,694 - telegram._bot - DEBUG - Message(channel_chat_created=False, chat=Chat(first_name='alireza', id=86702300, type=<ChatType.PRIVATE>, username='garwin'), date=datetime.datetime(2024, 6, 19, 9, 58, 33, tzinfo=<UTC>), delete_chat_photo=False, from_user=User(first_name='nikgoldforexbot', id=7278468920, is_bot=True, username='nikgoldforexxbot'), group_chat_created=False, message_id=2501, supergroup_chat_created=False, text='Please enter your question:')
+2024-06-19 13:28:58,695 - telegram._bot - DEBUG - Exiting: send_message
+2024-06-19 13:29:01,367 - httpx._client - DEBUG - HTTP Request: POST https://api.telegram.org/bot7278468920:AAGKSssCcjdJTy4O9TzgmFTqA1GRe6Dcfck/getUpdates "HTTP/1.1 200 OK"
+2024-06-19 13:29:01,368 - telegram._bot - DEBUG - Getting updates: [47656449]
+2024-06-19 13:29:01,368 - telegram._bot - DEBUG - (Update(message=Message(channel_chat_created=False, chat=Chat(first_name='alireza', id=86702300, type=<ChatType.PRIVATE>, username='garwin'), date=datetime.datetime(2024, 6, 19, 9, 58, 35, tzinfo=<UTC>), delete_chat_photo=False, from_user=User(first_name='alireza', id=86702300, is_bot=False, is_premium=True, language_code='en', username='garwin'), group_chat_created=False, message_id=2502, reply_to_message=Message(channel_chat_created=False, chat=Chat(first_name='alireza', id=86702300, type=<ChatType.PRIVATE>, username='garwin'), date=datetime.datetime(2024, 6, 19, 9, 58, 33, tzinfo=<UTC>), delete_chat_photo=False, from_user=User(first_name='nikgoldforexbot', id=7278468920, is_bot=True, username='nikgoldforexxbot'), group_chat_created=False, message_id=2501, supergroup_chat_created=False, text='Please enter your question:'), supergroup_chat_created=False, text='vcbvcb'), update_id=47656449),)
+2024-06-19 13:29:01,369 - telegram._bot - DEBUG - Exiting: get_updates
+2024-06-19 13:29:01,370 - telegram._bot - DEBUG - Entering: get_updates
+2024-06-19 13:29:01,371 - telegram.ext._application - DEBUG - Processing update Update(message=Message(channel_chat_created=False, chat=Chat(first_name='alireza', id=86702300, type=<ChatType.PRIVATE>, username='garwin'), date=datetime.datetime(2024, 6, 19, 9, 58, 35, tzinfo=<UTC>), delete_chat_photo=False, from_user=User(first_name='alireza', id=86702300, is_bot=False, is_premium=True, language_code='en', username='garwin'), group_chat_created=False, message_id=2502, reply_to_message=Message(channel_chat_created=False, chat=Chat(first_name='alireza', id=86702300, type=<ChatType.PRIVATE>, username='garwin'), date=datetime.datetime(2024, 6, 19, 9, 58, 33, tzinfo=<UTC>), delete_chat_photo=False, from_user=User(first_name='nikgoldforexbot', id=7278468920, is_bot=True, username='nikgoldforexxbot'), group_chat_created=False, message_id=2501, supergroup_chat_created=False, text='Please enter your question:'), supergroup_chat_created=False, text='vcbvcb'), update_id=47656449)
+2024-06-19 13:29:01,372 - telegram.ext._conversationhandler - DEBUG - Selecting conversation (86702300, 86702300) with state None
+2024-06-19 13:29:01,372 - telegram.ext._conversationhandler - DEBUG - Selecting conversation (86702300, 86702300) with state 1
+2024-06-19 13:29:01,957 - mysql.connector - DEBUG - Building SSL context
+2024-06-19 13:29:02,031 - mysql.connector - DEBUG - Switching to SSL
+2024-06-19 13:29:04,642 - mysql.connector - DEBUG - SSL has been enabled
+2024-06-19 13:29:04,642 - mysql.connector - DEBUG - Starting authorization phase
+2024-06-19 13:29:04,642 - mysql.connector - DEBUG - The provided initial strategy is mysql_native_password
+2024-06-19 13:29:05,186 - mysql.connector - DEBUG - mysql_native_password completed succesfully
+2024-06-19 13:29:09,511 - telegram._bot - DEBUG - Entering: send_message
+2024-06-19 13:29:10,213 - httpx._client - DEBUG - HTTP Request: POST https://api.telegram.org/bot7278468920:AAGKSssCcjdJTy4O9TzgmFTqA1GRe6Dcfck/sendMessage "HTTP/1.1 200 OK"
+2024-06-19 13:29:10,214 - telegram._bot - DEBUG - Message(channel_chat_created=False, chat=Chat(first_name='alireza', id=86702300, type=<ChatType.PRIVATE>, username='garwin'), date=datetime.datetime(2024, 6, 19, 9, 58, 44, tzinfo=<UTC>), delete_chat_photo=False, from_user=User(first_name='nikgoldforexbot', id=7278468920, is_bot=True, username='nikgoldforexxbot'), group_chat_created=False, message_id=2503, supergroup_chat_created=False, text='Thank you! Your question has been submitted to the support team.')
+2024-06-19 13:29:10,215 - telegram._bot - DEBUG - Exiting: send_message
+2024-06-19 13:29:10,215 - telegram._bot - DEBUG - Entering: send_message
+2024-06-19 13:29:10,798 - httpx._client - DEBUG - HTTP Request: POST https://api.telegram.org/bot7278468920:AAGKSssCcjdJTy4O9TzgmFTqA1GRe6Dcfck/sendMessage "HTTP/1.1 200 OK"
+2024-06-19 13:29:10,800 - telegram._bot - DEBUG - Message(channel_chat_created=False, chat=Chat(first_name='Howtowp', id=6445960938, type=<ChatType.PRIVATE>, username='howtowps'), date=datetime.datetime(2024, 6, 19, 9, 58, 45, tzinfo=<UTC>), delete_chat_photo=False, from_user=User(first_name='nikgoldforexbot', id=7278468920, is_bot=True, username='nikgoldforexxbot'), group_chat_created=False, message_id=2504, supergroup_chat_created=False, text='New support request from user 1:\nDepartment: Sales\nQuestion: vcbvcb')
+2024-06-19 13:29:10,801 - telegram._bot - DEBUG - Exiting: send_message
+2024-06-19 13:29:10,801 - telegram._bot - DEBUG - Entering: send_message
+2024-06-19 13:29:11,105 - httpx._client - DEBUG - HTTP Request: POST https://api.telegram.org/bot7278468920:AAGKSssCcjdJTy4O9TzgmFTqA1GRe6Dcfck/sendMessage "HTTP/1.1 200 OK"
+2024-06-19 13:29:11,107 - telegram._bot - DEBUG - Message(channel_chat_created=False, chat=Chat(first_name='Hasani', id=6623572261, type=<ChatType.PRIVATE>, username='golihasanis'), date=datetime.datetime(2024, 6, 19, 9, 58, 45, tzinfo=<UTC>), delete_chat_photo=False, from_user=User(first_name='nikgoldforexbot', id=7278468920, is_bot=True, username='nikgoldforexxbot'), group_chat_created=False, message_id=2505, supergroup_chat_created=False, text='New support request from user 1:\nDepartment: Sales\nQuestion: vcbvcb')
+2024-06-19 13:29:11,108 - telegram._bot - DEBUG - Exiting: send_message
+2024-06-19 13:29:11,745 - mysql.connector - DEBUG - Building SSL context
+2024-06-19 13:29:11,819 - mysql.connector - DEBUG - Switching to SSL
+2024-06-19 13:29:12,442 - mysql.connector - DEBUG - SSL has been enabled
+2024-06-19 13:29:12,442 - mysql.connector - DEBUG - Starting authorization phase
+2024-06-19 13:29:12,442 - mysql.connector - DEBUG - The provided initial strategy is mysql_native_password
+2024-06-19 13:29:13,124 - mysql.connector - DEBUG - mysql_native_password completed succesfully
+2024-06-19 13:29:15,345 - telegram._bot - DEBUG - Entering: send_message
+2024-06-19 13:29:15,563 - httpx._client - DEBUG - HTTP Request: POST https://api.telegram.org/bot7278468920:AAGKSssCcjdJTy4O9TzgmFTqA1GRe6Dcfck/sendMessage "HTTP/1.1 200 OK"
+2024-06-19 13:29:15,564 - telegram._bot - DEBUG - Message(channel_chat_created=False, chat=Chat(first_name='alireza', id=86702300, type=<ChatType.PRIVATE>, username='garwin'), date=datetime.datetime(2024, 6, 19, 9, 58, 50, tzinfo=<UTC>), delete_chat_photo=False, from_user=User(first_name='nikgoldforexbot', id=7278468920, is_bot=True, username='nikgoldforexxbot'), group_chat_created=False, message_id=2506, supergroup_chat_created=False, text='Here is your menu:')
+2024-06-19 13:29:15,564 - telegram._bot - DEBUG - Exiting: send_message
+2024-06-19 13:29:20,154 - httpx._client - DEBUG - HTTP Request: POST https://api.telegram.org/bot7278468920:AAGKSssCcjdJTy4O9TzgmFTqA1GRe6Dcfck/getUpdates "HTTP/1.1 200 OK"
+2024-06-19 13:29:20,154 - telegram._bot - DEBUG - No new updates found.
+2024-06-19 13:29:20,154 - telegram._bot - DEBUG - ()
+2024-06-19 13:29:20,154 - telegram._bot - DEBUG - Exiting: get_updates
+2024-06-19 13:29:20,156 - telegram._bot - DEBUG - Entering: get_updates
+2024-06-19 13:29:20,474 - httpx._client - DEBUG - HTTP Request: POST https://api.telegram.org/bot7278468920:AAGKSssCcjdJTy4O9TzgmFTqA1GRe6Dcfck/getUpdates "HTTP/1.1 200 OK"
+2024-06-19 13:29:20,475 - telegram._bot - DEBUG - Getting updates: [47656450]
+2024-06-19 13:29:20,476 - telegram._bot - DEBUG - (Update(message=Message(channel_chat_created=False, chat=Chat(first_name='alireza', id=86702300, type=<ChatType.PRIVATE>, username='garwin'), date=datetime.datetime(2024, 6, 19, 9, 58, 55, tzinfo=<UTC>), delete_chat_photo=False, from_user=User(first_name='alireza', id=86702300, is_bot=False, is_premium=True, language_code='en', username='garwin'), group_chat_created=False, message_id=2507, supergroup_chat_created=False, text='View Results'), update_id=47656450),)
+2024-06-19 13:29:20,477 - telegram._bot - DEBUG - Exiting: get_updates
+2024-06-19 13:29:20,477 - telegram._bot - DEBUG - Entering: get_updates
+2024-06-19 13:29:20,479 - telegram.ext._application - DEBUG - Processing update Update(message=Message(channel_chat_created=False, chat=Chat(first_name='alireza', id=86702300, type=<ChatType.PRIVATE>, username='garwin'), date=datetime.datetime(2024, 6, 19, 9, 58, 55, tzinfo=<UTC>), delete_chat_photo=False, from_user=User(first_name='alireza', id=86702300, is_bot=False, is_premium=True, language_code='en', username='garwin'), group_chat_created=False, message_id=2507, supergroup_chat_created=False, text='View Results'), update_id=47656450)
+2024-06-19 13:29:20,479 - telegram.ext._conversationhandler - DEBUG - Selecting conversation (86702300, 86702300) with state None
+2024-06-19 13:29:20,480 - telegram.ext._conversationhandler - DEBUG - Selecting conversation (86702300, 86702300) with state None
+2024-06-19 13:29:20,480 - telegram._bot - DEBUG - Entering: send_message
+2024-06-19 13:29:20,712 - httpx._client - DEBUG - HTTP Request: POST https://api.telegram.org/bot7278468920:AAGKSssCcjdJTy4O9TzgmFTqA1GRe6Dcfck/sendMessage "HTTP/1.1 200 OK"
+2024-06-19 13:29:20,714 - telegram._bot - DEBUG - Message(api_kwargs={'link_preview_options': {'url': 'https://t.me/nikgold_Results'}}, channel_chat_created=False, chat=Chat(first_name='alireza', id=86702300, type=<ChatType.PRIVATE>, username='garwin'), date=datetime.datetime(2024, 6, 19, 9, 58, 55, tzinfo=<UTC>), delete_chat_photo=False, entities=(MessageEntity(length=28, offset=106, type=<MessageEntityType.URL>),), from_user=User(first_name='nikgoldforexbot', id=7278468920, is_bot=True, username='nikgoldforexxbot'), group_chat_created=False, message_id=2508, supergroup_chat_created=False, text='برای نمایش نتایج اعضای خانواده نیک گلد کافیست وارد لینک زیر بشید و و نتیجه حیرت انگیز بچه هارو تماشا کنید\nhttps://t.me/nikgold_Results')
+2024-06-19 13:29:20,716 - telegram._bot - DEBUG - Exiting: send_message
+2024-06-19 13:29:22,451 - httpx._client - DEBUG - HTTP Request: POST https://api.telegram.org/bot7278468920:AAGKSssCcjdJTy4O9TzgmFTqA1GRe6Dcfck/getUpdates "HTTP/1.1 200 OK"
+2024-06-19 13:29:22,452 - telegram._bot - DEBUG - Getting updates: [47656451]
+2024-06-19 13:29:22,453 - telegram._bot - DEBUG - (Update(message=Message(channel_chat_created=False, chat=Chat(first_name='alireza', id=86702300, type=<ChatType.PRIVATE>, username='garwin'), date=datetime.datetime(2024, 6, 19, 9, 58, 57, tzinfo=<UTC>), delete_chat_photo=False, from_user=User(first_name='alireza', id=86702300, is_bot=False, is_premium=True, language_code='en', username='garwin'), group_chat_created=False, message_id=2509, supergroup_chat_created=False, text='بازگشت به منو اصلی'), update_id=47656451),)
+2024-06-19 13:29:22,454 - telegram._bot - DEBUG - Exiting: get_updates
+2024-06-19 13:29:22,454 - telegram._bot - DEBUG - Entering: get_updates
+2024-06-19 13:29:22,456 - telegram.ext._application - DEBUG - Processing update Update(message=Message(channel_chat_created=False, chat=Chat(first_name='alireza', id=86702300, type=<ChatType.PRIVATE>, username='garwin'), date=datetime.datetime(2024, 6, 19, 9, 58, 57, tzinfo=<UTC>), delete_chat_photo=False, from_user=User(first_name='alireza', id=86702300, is_bot=False, is_premium=True, language_code='en', username='garwin'), group_chat_created=False, message_id=2509, supergroup_chat_created=False, text='بازگشت به منو اصلی'), update_id=47656451)
+2024-06-19 13:29:22,456 - telegram.ext._conversationhandler - DEBUG - Selecting conversation (86702300, 86702300) with state None
+2024-06-19 13:29:22,457 - telegram.ext._conversationhandler - DEBUG - Selecting conversation (86702300, 86702300) with state None
+2024-06-19 13:29:32,587 - httpx._client - DEBUG - HTTP Request: POST https://api.telegram.org/bot7278468920:AAGKSssCcjdJTy4O9TzgmFTqA1GRe6Dcfck/getUpdates "HTTP/1.1 200 OK"
+2024-06-19 13:29:32,588 - telegram._bot - DEBUG - No new updates found.
+2024-06-19 13:29:32,588 - telegram._bot - DEBUG - ()
+2024-06-19 13:29:32,589 - telegram._bot - DEBUG - Exiting: get_updates
+2024-06-19 13:29:32,589 - telegram._bot - DEBUG - Entering: get_updates
