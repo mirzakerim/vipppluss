@@ -47,5 +47,5 @@ async def start_vip_purchase(update: Update, context: CallbackContext) -> None:
     await context.bot.send_message(chat_id=chat_id, text=regulations_message, reply_markup=reply_markup)
 
 async def back_to_menu(update: Update, context: CallbackContext) -> None:
-    from bot.modules.user.menu import show_user_menu
+    from bot.modules.common.menu import show_user_menu
     await show_user_menu(update, context)
