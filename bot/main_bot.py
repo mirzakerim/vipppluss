@@ -13,7 +13,7 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/..')
 # Telegram Imports
 from telegram import Update
 from telegram.ext import (
-    Application, CommandHandler, MessageHandler, filters, ConversationHandler, CallbackQueryHandler, CallbackContext
+    Application, CommandHandler, MessageHandler, filters, ConversationHandler, CallbackContext
 )
 
 # Local Module Imports
@@ -37,13 +37,11 @@ def start(update: Update, context: CallbackContext) -> int:
     logger.info("Starting registration process for user: %s", update.message.from_user.username)
     return register.start(update, context)
 
-
 async def menu_command(update: Update, context: CallbackContext) -> int:
     """Displays the main menu to the user."""
     logger.info("User %s requested main menu", update.message.from_user.username)
     await menu.show_user_menu(update, context)
     return ConversationHandler.END
-
 
 async def show_user_level(update: Update, context: CallbackContext):
     """Displays the user level to the user."""
@@ -55,6 +53,10 @@ async def show_user_level(update: Update, context: CallbackContext):
     else:
         await update.message.reply_text("Unable to retrieve your user level.")
 
+# --- Function to Create Handlers Based on Regex ---
+
+def create_message_handler(pattern, callback):
+    return MessageHandler(filters.Regex(pattern), callback)
 
 # --- Main Bot Setup ---
 async def start_bot():
@@ -87,30 +89,38 @@ async def start_bot():
         fallbacks=[CommandHandler('cancel', online_support.cancel), CommandHandler('menu', menu_command)],
     )
 
-    
     # Add Conversation Handlers
     application.add_handler(conv_handler)
     application.add_handler(support_conv_handler)
 
-    # Add Other Handlers
-    application.add_handler(MessageHandler(filters.Regex(r'^FAQ$'), faq.faq))
-    application.add_handler(MessageHandler(filters.Regex(r'^Buy VIP Membership$'), buy_vip.start_vip_purchase))
-    application.add_handler(MessageHandler(filters.Regex(r'^Buy VIP\+ Membership$'), buy_vipplus.start_vip_purchase))
-    application.add_handler(MessageHandler(filters.Regex(r'^View Results$'), results.view_results))
-    application.add_handler(MessageHandler(filters.Regex(r'^Regulations$'), regulations.regulations))
+    # Add Receipt Conversation Handler
+    receipt_conv_handler = send_receipt.get_receipt_conv_handler()
+    application.add_handler(receipt_conv_handler)
 
-    # VIP Membership Options
-    application.add_handler(MessageHandler(filters.Regex('^دریافت لیست بروکرها$'), brokers_list.get_brokers_list))
-    application.add_handler(MessageHandler(filters.Regex('^دریافت آدرس ولت$'), wallet_address.get_wallet_address))
+    # Add Profit/Loss Conversation Handler
+    profit_loss_conv_handler = profit_loss.get_profit_loss_conv_handler()
+    application.add_handler(profit_loss_conv_handler)
 
-    # VIP Menu Options
-    application.add_handler(MessageHandler(filters.Regex('^پشتیبانی$'), online_support.start_support))
-    application.add_handler(MessageHandler(filters.Regex('^ثبت سود و ضرر$'), profit_loss.profit_loss))
-    application.add_handler(MessageHandler(filters.Regex('^تمدید اشتراک$'), renew_subscription.renew_subscription))
-    application.add_handler(MessageHandler(filters.Regex('^سوالات متداول$'), faq.faq))
-    application.add_handler(MessageHandler(filters.Regex('^حساب کاربری$'), results.view_results))
-    application.add_handler(MessageHandler(filters.Regex('^قوانین و مقررات$'), regulations.regulations))
-    application.add_handler(MessageHandler(filters.Regex('^مشاهده نتایج$'), results.view_results))
+    # Add Other Handlers Using create_message_handler Function
+    patterns_callbacks = {
+        r'^FAQ$': faq.faq,
+        r'^Buy VIP Membership$': buy_vip.start_vip_purchase,
+        r'^Buy VIP\+ Membership$': buy_vipplus.start_vip_purchase,
+        r'^View Results$': results.view_results,
+        r'^Regulations$': regulations.regulations,
+        r'^دریافت لیست بروکرها$': brokers_list.get_brokers_list,
+        r'^دریافت آدرس ولت$': wallet_address.get_wallet_address,
+        r'^پشتیبانی$': online_support.start_support,
+        r'^ثبت سود و ضرر$': profit_loss.start_profit_loss,
+        r'^تمدید اشتراک$': renew_subscription.renew_subscription,
+        r'^سوالات متداول$': faq.faq,
+        r'^حساب کاربری$': results.view_results,
+        r'^قوانین و مقررات$': regulations.regulations,
+        r'^مشاهده نتایج$': results.view_results,
+    }
+
+    for pattern, callback in patterns_callbacks.items():
+        application.add_handler(create_message_handler(pattern, callback))
 
     application.add_handler(CommandHandler('menu', menu_command))
     application.add_handler(CommandHandler('user_level', show_user_level))
@@ -125,11 +135,9 @@ async def start_bot():
     await application.stop()
     await application.shutdown()
 
-
 def stop_bot():
     """Stops the bot gracefully."""
     stop_event.set()
-
 
 if __name__ == '__main__':
     try:
