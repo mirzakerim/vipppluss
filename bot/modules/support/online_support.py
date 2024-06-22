@@ -1,5 +1,5 @@
 from telegram import Update, ForceReply, ReplyKeyboardMarkup, KeyboardButton
-from telegram.ext import CallbackContext, ConversationHandler
+from telegram.ext import CallbackContext, ConversationHandler, CommandHandler, MessageHandler, filters
 from utils.database import create_connection, execute_query, fetch_query
 from bot.modules.common.menu import show_user_menu
 
@@ -7,22 +7,22 @@ from bot.modules.common.menu import show_user_menu
 DEPARTMENT, QUESTION = range(2)
 
 async def start_support(update: Update, context: CallbackContext) -> int:
-    departments = ['Sales', 'Technical', 'Billing', 'Other']
-    reply_markup = ReplyKeyboardMarkup([[d] for d in departments] + [['Cancel']], one_time_keyboard=True)
+    departments = ['فروش', 'فنی', 'مالی', 'سایر']
+    reply_markup = ReplyKeyboardMarkup([['فروش', 'فنی'], ['مالی', 'سایر'], ['لغو']], one_time_keyboard=True)
     await update.message.reply_text(
-        'Please choose the department you want to contact:',
+        'لطفاً بخشی که می‌خواهید با آن تماس بگیرید را انتخاب کنید:',
         reply_markup=reply_markup,
     )
     return DEPARTMENT
 
 async def choose_department(update: Update, context: CallbackContext) -> int:
-    if update.message.text == 'Cancel':
+    if update.message.text == 'لغو':
         await show_user_menu(update, context)
         return ConversationHandler.END
 
     context.user_data['department'] = update.message.text
     await update.message.reply_text(
-        'Please enter your question:',
+        'لطفاً سوال خود را وارد کنید:',
         reply_markup=ForceReply(selective=True),
     )
     return QUESTION
@@ -36,7 +36,7 @@ async def ask_question(update: Update, context: CallbackContext) -> int:
     # Get user_id from the users table
     connection = create_connection()
     if connection is None:
-        await update.message.reply_text("Failed to connect to the database.")
+        await update.message.reply_text("اتصال به پایگاه داده ناموفق بود.")
         return ConversationHandler.END
 
     query = "SELECT id FROM users WHERE telegram_id = %s"
@@ -48,10 +48,10 @@ async def ask_question(update: Update, context: CallbackContext) -> int:
         if result:
             user_id = result[0][0]
         else:
-            await update.message.reply_text("User not found in the database.")
+            await update.message.reply_text("کاربر در پایگاه داده یافت نشد.")
             return ConversationHandler.END
     except Exception as e:
-        await update.message.reply_text(f"An error occurred: {e}")
+        await update.message.reply_text(f"خطایی رخ داد: {e}")
         return ConversationHandler.END
 
     # Save support request to the database
@@ -63,7 +63,7 @@ async def ask_question(update: Update, context: CallbackContext) -> int:
 
     try:
         execute_query(connection, query, data)
-        await update.message.reply_text('Thank you! Your question has been submitted to the support team.')
+        await update.message.reply_text('متشکریم! سوال شما به تیم پشتیبانی ارسال شد.')
         
         # ارسال سوال به ادمین‌های مشخص شده
         await send_question_to_admins(context, department, question, user_id)
@@ -73,7 +73,7 @@ async def ask_question(update: Update, context: CallbackContext) -> int:
         return ConversationHandler.END
 
     except Exception as e:
-        await update.message.reply_text(f"An error occurred: {e}")
+        await update.message.reply_text(f"خطایی رخ داد: {e}")
         return ConversationHandler.END
     finally:
         connection.close()
@@ -84,11 +84,33 @@ async def cancel(update: Update, context: CallbackContext) -> int:
 
 async def send_question_to_admins(context: CallbackContext, department: str, question: str, user_id: int):
     admin_ids = {
-        'Sales': [6445960938, 6623572261],  # ID‌های ادمین‌های دپارتمان Sales
-        'Technical': [6445960938, 6623572261],  # ID‌های ادمین‌های دپارتمان Technical
-        'Billing': [6445960938, 6623572261],  # ID‌های ادمین‌های دپارتمان Billing
-        'Other': [6445960938, 6623572261]  # ID‌های ادمین‌های دپارتمان Other
+        'فروش': [6445960938, 6623572261],  # ID‌های ادمین‌های دپارتمان فروش
+        'فنی': [6445960938, 6623572261],  # ID‌های ادمین‌های دپارتمان فنی
+        'مالی': [6445960938, 6623572261],  # ID‌های ادمین‌های دپارتمان مالی
+        'سایر': [6445960938, 6623572261]  # ID‌های ادمین‌های دپارتمان سایر
     }
-    message = f"New support request from user {user_id}:\nDepartment: {department}\nQuestion: {question}"
+    message = f"درخواست پشتیبانی جدید از کاربر {user_id}:\nبخش: {department}\nسوال: {question}"
     for admin_id in admin_ids.get(department, []):
         await context.bot.send_message(chat_id=admin_id, text=message)
+
+def main():
+    from telegram.ext import Updater
+    updater = Updater("YOUR_TOKEN")
+
+    dispatcher = updater.dispatcher
+
+    support_handler = ConversationHandler(
+        entry_points=[CommandHandler('support', start_support)],
+        states={
+            DEPARTMENT: [MessageHandler(Filters.text & ~Filters.command, choose_department)],
+            QUESTION: [MessageHandler(Filters.text & ~Filters.command, ask_question)],
+        },
+        fallbacks=[CommandHandler('cancel', cancel)],
+    )
+
+    dispatcher.add_handler(support_handler)
+    updater.start_polling()
+    updater.idle()
+
+if __name__ == '__main__':
+    main()
