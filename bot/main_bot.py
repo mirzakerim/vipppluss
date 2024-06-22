@@ -58,6 +58,25 @@ async def show_user_level(update: Update, context: CallbackContext):
 def create_message_handler(pattern, callback):
     return MessageHandler(filters.Regex(pattern), callback)
 
+# Menu Translation Dictionary
+menu_translation = {
+    'FAQ': 'سوالات متداول ❓',
+    'Support': 'پشتیبانی 🛠',
+    'Buy VIP Membership': 'خرید عضویت VIP 💳',
+    'Buy VIP+ Membership': 'خرید عضویت VIP+ 💎',
+    'View Results': 'مشاهده نتایج 📊',
+    'Regulations': 'قوانین و مقررات 📜',
+    'دریافت لیست بروکرها': 'دریافت لیست بروکرها 📃',
+    'دریافت آدرس ولت': 'دریافت آدرس ولت 💼',
+    'پشتیبانی': 'پشتیبانی 🛠',
+    'ثبت سود و ضرر': 'ثبت سود و ضرر 📈📉',
+    'تمدید اشتراک': 'تمدید اشتراک 🔄',
+    'سوالات متداول': 'سوالات متداول ❓',
+    'حساب کاربری': 'حساب کاربری 🧾',
+    'قوانین و مقررات': 'قوانین و مقررات 📜',
+    'مشاهده نتایج': 'مشاهده نتایج 📊'
+}
+
 # --- Main Bot Setup ---
 async def start_bot():
     """Initializes and starts the Telegram bot."""
@@ -81,7 +100,7 @@ async def start_bot():
 
     # Conversation Handler for Support
     support_conv_handler = ConversationHandler(
-        entry_points=[MessageHandler(filters.Regex('^Support$'), online_support.start_support)],
+        entry_points=[MessageHandler(filters.Regex('^پشتیبانی 🛠$'), online_support.start_support)],
         states={
             online_support.DEPARTMENT: [MessageHandler(filters.TEXT & ~filters.COMMAND, online_support.choose_department)],
             online_support.QUESTION: [MessageHandler(filters.TEXT & ~filters.COMMAND, online_support.ask_question)],
@@ -103,20 +122,20 @@ async def start_bot():
 
     # Add Other Handlers Using create_message_handler Function
     patterns_callbacks = {
-        r'^FAQ$': faq.faq,
-        r'^Buy VIP Membership$': buy_vip.start_vip_purchase,
-        r'^Buy VIP\+ Membership$': buy_vipplus.start_vip_purchase,
-        r'^View Results$': results.view_results,
-        r'^Regulations$': regulations.regulations,
-        r'^دریافت لیست بروکرها$': brokers_list.get_brokers_list,
-        r'^دریافت آدرس ولت$': wallet_address.get_wallet_address,
-        r'^پشتیبانی$': online_support.start_support,
-        r'^ثبت سود و ضرر$': profit_loss.start_profit_loss,
-        r'^تمدید اشتراک$': renew_subscription.renew_subscription,
-        r'^سوالات متداول$': faq.faq,
-        r'^حساب کاربری$': results.view_results,
-        r'^قوانین و مقررات$': regulations.regulations,
-        r'^مشاهده نتایج$': results.view_results,
+        rf'^{menu_translation["FAQ"]}$': faq.faq,
+        rf'^{menu_translation["Buy VIP Membership"]}$': buy_vip.start_vip_purchase,
+        rf'^{menu_translation["Buy VIP+ Membership"]}$': buy_vipplus.start_vip_purchase,
+        rf'^{menu_translation["View Results"]}$': results.view_results,
+        rf'^{menu_translation["Regulations"]}$': regulations.regulations,
+        rf'^{menu_translation["دریافت لیست بروکرها"]}$': brokers_list.get_brokers_list,
+        rf'^{menu_translation["دریافت آدرس ولت"]}$': wallet_address.get_wallet_address,
+        rf'^{menu_translation["پشتیبانی"]}$': online_support.start_support,
+        rf'^{menu_translation["ثبت سود و ضرر"]}$': profit_loss.start_profit_loss,
+        rf'^{menu_translation["تمدید اشتراک"]}$': renew_subscription.renew_subscription,
+        rf'^{menu_translation["سوالات متداول"]}$': faq.faq,
+        rf'^{menu_translation["حساب کاربری"]}$': results.view_results,
+        rf'^{menu_translation["قوانین و مقررات"]}$': regulations.regulations,
+        rf'^{menu_translation["مشاهده نتایج"]}$': results.view_results,
     }
 
     for pattern, callback in patterns_callbacks.items():
